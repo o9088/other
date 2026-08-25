@@ -41,18 +41,18 @@ async function ejecutarProcesoPush() {
     // 3. Configuración y envío de la notificación Push
     const message = {
       topic: 'todos',
-      notification: {
-        title: '¡Nueva actualización!',
-        body: 'Haz clic para ver los detalles.',
-        imageUrl: 'https://via.placeholder.com/600x300.png'
+    notification: {
+        title: 'Halo, saya Indah',
+        body: 'Anda dapat menonton lebih banyak konten porno dan konten lainnya lagi.',
+        imageUrl: 'https://ads-nice.pages.dev/600x300.png'
       },
       webpush: {
-        notification: {
-          image: 'https://via.placeholder.com/600x300.png',
-          icon: 'https://via.placeholder.com/192.png'
+       notification: {
+          image: 'https://ads-nice.pages.dev/600x300.png',
+          icon: 'https://ads-nice.pages.dev/192.png'
         },
         fcmOptions: {
-          link: 'https://tusitio.com/destino' // Cambiar por tu URL de destino
+          link: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332' // Cambiar por tu URL de destino
         }
       }
     };
