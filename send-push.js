@@ -40,21 +40,15 @@ async function ejecutarProcesoPush() {
 
     // 3. Configuración y envío de la notificación Push
  // 3. Configuración y envío de la notificación Push limpia (sin duplicación)
+// 3. Configuración enviando solo datos (Evita la duplicación por completo)
     const message = {
       topic: 'todos',
-      webpush: {
-        notification: {
-          title: 'Halo, saya Indah',
-          body: 'Anda dapat menonton lebih banyak konten porno dan konten lainnya lagi.',
-          image: 'https://ads-nice.pages.dev/600x300.png',
-          icon: 'https://ads-nice.pages.dev/192.png'
-        },
-        fcmOptions: {
-          link: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332'
-        },
-        data: {
-          url: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332'
-        }
+      data: {
+        title: 'Halo, saya Indah',
+        body: 'Anda dapat menonton lebih banyak konten porno dan konten lainnya lagi.',
+        image: 'https://ads-nice.pages.dev/600x300.png',
+        icon: 'https://ads-nice.pages.dev/192.png',
+        url: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332'
       }
     };
 
