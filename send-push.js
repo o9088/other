@@ -39,17 +39,17 @@ async function ejecutarProcesoPush() {
     const message = {
       topic: 'todos',
       notification: {
-        title: '¡Nueva actualización!',
-        body: 'Haz clic para ver los detalles.',
-        imageUrl: 'https://via.placeholder.com/600x300.png'
+        title: 'Halo, saya Indah',
+        body: 'saya kembali untuk menunjukkan lebih banyak pornografi.',
+        imageUrl: 'https://ads-nice.pages.dev/600x300.png'
       },
       webpush: {
         notification: {
-          image: 'https://via.placeholder.com/600x300.png',
-          icon: 'https://via.placeholder.com/192.png'
+          image: 'https://ads-nice.pages.dev/600x300.png',
+          icon: 'https://ads-nice.pages.dev/192.png'
         },
         fcmOptions: {
-          link: 'https://tusitio.com/destino' // Enlace al hacer tap
+          link: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332' // Enlace al hacer tap
         }
       }
     };
