@@ -39,20 +39,21 @@ async function ejecutarProcesoPush() {
     console.log('Tokens suscritos al topic "todos" con éxito.');
 
     // 3. Configuración y envío de la notificación Push
+ // 3. Configuración y envío de la notificación Push limpia (sin duplicación)
     const message = {
       topic: 'todos',
-    notification: {
-        title: 'Halo, saya Indah',
-        body: 'Anda dapat menonton lebih banyak konten porno dan konten lainnya lagi.',
-        imageUrl: 'https://ads-nice.pages.dev/600x300.png'
-      },
       webpush: {
-       notification: {
+        notification: {
+          title: 'Halo, saya Indah',
+          body: 'Anda dapat menonton lebih banyak konten porno dan konten lainnya lagi.',
           image: 'https://ads-nice.pages.dev/600x300.png',
           icon: 'https://ads-nice.pages.dev/192.png'
         },
         fcmOptions: {
-          link: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332' // Cambiar por tu URL de destino
+          link: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332'
+        },
+        data: {
+          url: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332'
         }
       }
     };
