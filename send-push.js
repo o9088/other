@@ -26,21 +26,42 @@ async function ejecutarProcesoPush() {
       process.exit(0);
     }
 
-    // Extraer la lista de tokens
-    const tokens = Object.values(data).map(item => item.token);
+    // Mapear claves y tokens para poder eliminar luego por ID de Firebase
+    const entries = Object.entries(data); // Array de [key, value]
+    const tokens = entries.map(([key, item]) => item.token);
     console.log(`Procesando ${tokens.length} tokens...`);
 
-    // 2. Suscribir los tokens al topic "todos" en lotes de máximo 1,000
+    // 2. Suscribir los tokens al topic "todos" y LIMPIAR los desinstalados/inválidos
     const batchSize = 1000;
-    for (let i = 0; i < tokens.length; i += batchSize) {
-      const chunk = tokens.slice(i, i + batchSize);
-      await admin.messaging().subscribeToTopic(chunk, 'todos');
-    }
-    console.log('Tokens suscritos al topic "todos" con éxito.');
+    for (let i = 0; i < entries.length; i += batchSize) {
+      const chunkEntries = entries.slice(i, i + batchSize);
+      const chunkTokens = chunkEntries.map(([key, item]) => item.token);
+      
+      const response = await admin.messaging().subscribeToTopic(chunkTokens, 'todos');
+      
+      // Si Firebase detecta tokens caducados o desinstalados, los borramos
+      if (response.failureCount > 0) {
+        console.log(`Detectados ${response.failureCount} tokens inválidos en el lote. Limpiando...`);
+        
+        const deletePromises = [];
+        response.errors.forEach((error, index) => {
+          const errorCode = error.error?.code;
+          if (
+            errorCode === 'messaging/invalid-registration-token' ||
+            errorCode === 'messaging/registration-token-not-registered'
+          ) {
+            const firebaseKey = chunkEntries[index][0];
+            deletePromises.push(db.ref(`tokens/${firebaseKey}`).remove());
+          }
+        });
 
-    // 3. Configuración y envío de la notificación Push
- // 3. Configuración y envío de la notificación Push limpia (sin duplicación)
-// 3. Configuración enviando solo datos (Evita la duplicación por completo)
+        await Promise.all(deletePromises);
+        console.log('Tokens caducados eliminados de Realtime Database.');
+      }
+    }
+    console.log('Proceso de suscripción y verificación completado.');
+
+    // 3. Configuración enviando solo datos (Evita la duplicación por completo)
     const message = {
       topic: 'todos',
       data: {
