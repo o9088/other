@@ -1,0 +1,37 @@
+name: Envio Masivo de Push cada 15 minutos
+
+on:
+  schedule:
+    # Programación CRON: Se ejecuta automáticamente los minutos 0, 15, 30 y 45 de cada hora
+    - cron: '*/15 * * * *'
+  
+  # Permite ejecutar el flujo manualmente desde la pestaña "Actions" de GitHub para hacer pruebas
+  workflow_dispatch: 
+
+jobs:
+  run-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Copiar los archivos de tu repositorio a la máquina virtual de GitHub
+      - name: Descargar codigo del repositorio
+        uses: actions/checkout@v4
+
+      # 2. Instalar el entorno de Node.js (Versión 20)
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # 3. Instalar la librería oficial de Firebase para servidores
+      - name: Instalar dependencias
+        run: |
+          npm init -y
+          npm install firebase-admin
+
+      # 4. Ejecutar el script que lee la base de datos y envía el push masivo
+      - name: Ejecutar script send-push.js
+        env:
+          # Inyecta la clave JSON guardada en los Secrets de GitHub como variable de entorno
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: node send-push.js
