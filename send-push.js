@@ -64,3 +64,17 @@ async function ejecutarProcesoPush() {
 }
 
 ejecutarProcesoPush();
+
+// Al final de tu archivo send-push.js, dentro de la función ejecutarProcesoPush():
+
+    const response = await admin.messaging().send(message);
+    console.log('Notificación enviada con éxito:', response);
+
+    // 🔴 AÑADE ESTA LÍNEA AL FINAL DE LA FUNCIÓN:
+    process.exit(0);
+
+  } catch (error) {
+    console.error('Error durante la ejecución:', error);
+    process.exit(1);
+  }
+}
