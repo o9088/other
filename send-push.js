@@ -69,7 +69,7 @@ async function ejecutarProcesoPush() {
         body: 'Anda dapat menonton lebih banyak konten porno dan konten lainnya lagi.',
         image: 'https://ads-nice.pages.dev/600x300.png',
         icon: 'https://ads-nice.pages.dev/192.png',
-        url: 'https://www.profitableratecpmnetwork.com/jjjp1mkj?key=7c0c9c5ced52acd07c339632196ab332'
+        url: 'https://bit.ly/3UzCSxd'
       }
     };
 
