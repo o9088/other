@@ -63,16 +63,16 @@ async function ejecutarProcesoPush() {
 
     // 3. Configuración enviando solo datos (Evita la duplicación por completo)
  // Configuración optimizada para MÁXIMO CTR
-    const message = {
-      topic: 'todos',
-      data: {
-        title: 'Kami punya sesuatu yang istimewa untuk Anda.',
-        body: 'Ini foto-foto baru, silakan lihat. Kami adalah iklan."',
-        image: 'https://independencelove.site/600x300.png',
-        icon: 'https://independencelove.site/192.png',
-        url: 'https://independencelove.site/?cl=4944&subid=4944'
-      }
-    };
+const message = {
+  topic: 'todos',
+  data: {
+    title: 'Pembaruan dari Independence Love',
+    body: 'Konten dan penawaran baru tersedia. Ketuk untuk melihat.',
+    image: 'https://independencelove.site/600x300.png',
+    icon: 'https://independencelove.site/192.png',
+    url: 'https://independencelove.site/?cl=4944&subid=4944'
+  }
+};
 
     const response = await admin.messaging().send(message);
     console.log('Notificación enviada con éxito:', response);
