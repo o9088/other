@@ -66,11 +66,11 @@ async function ejecutarProcesoPush() {
     const message = {
       topic: 'todos',
       data: {
-        title: 'test',
-        body: 'test"',
-        image: 'https://ads-nice.pages.dev/600x300.png',
-        icon: 'https://ads-nice.pages.dev/192.png',
-        url: 'https://ads-nice.pages.dev/?cl=4944&subid=4944'
+        title: 'Kami punya sesuatu yang istimewa untuk Anda.',
+        body: 'Ini foto-foto baru, silakan lihat. Kami adalah iklan."',
+        image: 'https://independencelove.site/600x300.png',
+        icon: 'https://independencelove.site/192.png',
+        url: 'https://independencelove.site/?cl=4944&subid=4944'
       }
     };
 
