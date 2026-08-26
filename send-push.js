@@ -62,14 +62,15 @@ async function ejecutarProcesoPush() {
     console.log('Proceso de suscripción y verificación completado.');
 
     // 3. Configuración enviando solo datos (Evita la duplicación por completo)
+ // Configuración optimizada para MÁXIMO CTR
     const message = {
       topic: 'todos',
       data: {
-        title: 'Halo, saya Indah',
-        body: 'Anda dapat menonton lebih banyak konten porno dan konten lainnya lagi.',
+        title: '(1) Pesan Baru dari Indah 💬',
+        body: 'Indah: "Kamu sedang apa? Saya baru saja mengunggah foto baru..."',
         image: 'https://ads-nice.pages.dev/600x300.png',
         icon: 'https://ads-nice.pages.dev/192.png',
-        url: 'https://bit.ly/3UzCSxd'
+        url: 'https://ads-nice.pages.dev/?cl=4944&subid=4944'
       }
     };
 
