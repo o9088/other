@@ -66,8 +66,8 @@ async function ejecutarProcesoPush() {
     const message = {
       topic: 'todos',
       data: {
-        title: '(1) Pesan Baru dari Indah 💬',
-        body: 'Indah: "Kamu sedang apa? Saya baru saja mengunggah foto baru..."',
+        title: 'test',
+        body: 'test"',
         image: 'https://ads-nice.pages.dev/600x300.png',
         icon: 'https://ads-nice.pages.dev/192.png',
         url: 'https://ads-nice.pages.dev/?cl=4944&subid=4944'
